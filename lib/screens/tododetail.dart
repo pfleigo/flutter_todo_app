@@ -16,7 +16,6 @@ const mnuBack = 'Back to List';
 
 class TodoDetail extends StatefulWidget {
   final Todo todo;
-  // TodoDetail(this.todo);
 
   TodoDetail({Key key, @required this.todo}) : super(key: key);
 
@@ -136,9 +135,9 @@ class _TodoDetailState extends State<TodoDetail> {
   void save() {
     widget.todo.date = DateFormat.yMd().format(DateTime.now());
     if (widget.todo.id != null) {
-      helper.updateTodo(todo);
+      helper.updateTodo(widget.todo);
     } else {
-      helper.insertTodo(todo);
+      helper.insertTodo(widget.todo);
     }
     Navigator.pop(context, true);
   }
